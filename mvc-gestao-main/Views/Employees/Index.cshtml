@@ -1,0 +1,13 @@
+@model IEnumerable<EmployeesManagement.Models.Employee>
+@{ ViewData["Title"]="Employees"; }
+<div class="card"><div class="card-header"><h3 class="card-title">Employees</h3>
+<a asp-action="Create" class="btn btn-success float-right"><i class="fas fa-plus"></i> New</a></div>
+<div class="card-body"><table id="tbl" class="table table-bordered table-striped"><thead><tr>
+<th>#</th><th>Emp#</th><th>Full Name</th><th>Email</th><th>Department</th><th>Designation</th><th>Actions</th>
+</tr></thead><tbody>
+@foreach(var i in Model){<tr><td>@i.Id</td><td>@i.EmpNumber</td><td>@i.FullName</td><td>@i.EmailAddress</td><td>@i.Department</td><td>@i.Designation</td>
+<td><a asp-action="Edit" asp-route-id="@i.Id" class="btn btn-primary btn-sm"><i class="fas fa-pencil-alt"></i></a>
+<a asp-action="Details" asp-route-id="@i.Id" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></a>
+<a asp-action="Delete" asp-route-id="@i.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a></td></tr>}
+</tbody></table></div></div>
+@section Scripts{<script>$(function(){$("#tbl").DataTable({responsive:true});});</script>}

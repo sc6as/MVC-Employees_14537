@@ -1,0 +1,25 @@
+@{ ViewData["Title"] = "Dashboard"; }
+<div class="content-header"><h1>Dashboard</h1></div>
+<div class="row">
+    <div class="col-lg-4 col-6">
+        <div class="small-box bg-info">
+            <div class="inner"><h3>@ViewBag.TotalEmployees</h3><p>Funcionários</p></div>
+            <div class="icon"><i class="fas fa-users"></i></div>
+            <a asp-controller="Employees" asp-action="Index" class="small-box-footer">Ver mais <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-6">
+        <div class="small-box bg-success">
+            <div class="inner"><h3>@ViewBag.TotalDepartments</h3><p>Departamentos</p></div>
+            <div class="icon"><i class="fas fa-building"></i></div>
+            <a asp-controller="Employees" asp-action="Index" class="small-box-footer">Ver mais <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-6">
+        <div class="small-box bg-warning">
+            <div class="inner"><h3>@ViewBag.TotalCountries</h3><p>Países</p></div>
+            <div class="icon"><i class="fas fa-globe"></i></div>
+            <a asp-controller="Employees" asp-action="Index" class="small-box-footer">Ver mais <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>

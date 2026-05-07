@@ -1,0 +1,17 @@
+@model EmployeesManagement.Models.Employee
+@{ ViewData["Title"]="Delete"; }
+<div class="card"><div class="card-header"><h3>Delete</h3></div><div class="card-body">
+<dl class="row">
+<dt class="col-sm-3">Emp#</dt><dd class="col-sm-9">@Model.EmpNumber</dd>
+<dt class="col-sm-3">Name</dt><dd class="col-sm-9">@Model.FullName</dd>
+<dt class="col-sm-3">Email</dt><dd class="col-sm-9">@Model.EmailAddress</dd>
+<dt class="col-sm-3">Phone</dt><dd class="col-sm-9">@Model.PhoneNumber</dd>
+<dt class="col-sm-3">Country</dt><dd class="col-sm-9">@Model.Country</dd>
+<dt class="col-sm-3">DOB</dt><dd class="col-sm-9">@Model.DateOfBirth.ToShortDateString()</dd>
+<dt class="col-sm-3">Address</dt><dd class="col-sm-9">@Model.Address</dd>
+<dt class="col-sm-3">Department</dt><dd class="col-sm-9">@Model.Department</dd>
+<dt class="col-sm-3">Designation</dt><dd class="col-sm-9">@Model.Designation</dd>
+</dl>
+@if("Delete"=="Delete"){<form asp-action="Delete"><input type="hidden" asp-for="Id"/><button class="btn btn-danger">Confirm Delete</button> <a asp-action="Index" class="btn btn-secondary">Cancel</a></form>}
+else{<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a> <a asp-action="Index" class="btn btn-secondary">Back</a>}
+</div></div>
