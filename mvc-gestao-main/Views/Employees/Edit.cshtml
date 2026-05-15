@@ -1,21 +1,17 @@
 @model EmployeesManagement.Models.Employee
-@{ ViewData["Title"]="Edit"; }
-<div class="card"><div class="card-header"><h3>Edit Employee</h3></div>
-<div class="card-body"><form asp-action="Edit">
-@if("Edit"=="Edit"){<input type="hidden" asp-for="Id"/>}
-<div class="row">
-<div class="col-md-6 form-group"><label asp-for="EmpNumber"></label><input asp-for="EmpNumber" class="form-control"/><span asp-validation-for="EmpNumber" class="text-danger"></span></div>
-<div class="col-md-6 form-group"><label asp-for="FirstName"></label><input asp-for="FirstName" class="form-control"/></div>
-<div class="col-md-6 form-group"><label asp-for="MiddleName"></label><input asp-for="MiddleName" class="form-control"/></div>
-<div class="col-md-6 form-group"><label asp-for="LastName"></label><input asp-for="LastName" class="form-control"/></div>
-<div class="col-md-6 form-group"><label asp-for="PhoneNumber"></label><input asp-for="PhoneNumber" class="form-control"/></div>
-<div class="col-md-6 form-group"><label asp-for="EmailAddress"></label><input asp-for="EmailAddress" class="form-control"/></div>
-<div class="col-md-6 form-group"><label asp-for="Country"></label><input asp-for="Country" class="form-control"/></div>
-<div class="col-md-6 form-group"><label asp-for="DateOfBirth"></label><input asp-for="DateOfBirth" type="date" class="form-control"/></div>
-<div class="col-md-12 form-group"><label asp-for="Address"></label><input asp-for="Address" class="form-control"/></div>
-<div class="col-md-6 form-group"><label asp-for="Department"></label><input asp-for="Department" class="form-control"/></div>
-<div class="col-md-6 form-group"><label asp-for="Designation"></label><input asp-for="Designation" class="form-control"/></div>
-</div>
-<button type="submit" class="btn btn-primary">Save</button>
-<a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form></div></div>
+@{ ViewData["Title"]="Delete"; }
+<div class="card"><div class="card-header"><h3>Delete</h3></div><div class="card-body">
+<dl class="row">
+<dt class="col-sm-3">Emp#</dt><dd class="col-sm-9">@Model.EmpNumber</dd>
+<dt class="col-sm-3">Name</dt><dd class="col-sm-9">@Model.FullName</dd>
+<dt class="col-sm-3">Email</dt><dd class="col-sm-9">@Model.EmailAddress</dd>
+<dt class="col-sm-3">Phone</dt><dd class="col-sm-9">@Model.PhoneNumber</dd>
+<dt class="col-sm-3">Country</dt><dd class="col-sm-9">@Model.Country</dd>
+<dt class="col-sm-3">DOB</dt><dd class="col-sm-9">@Model.DateOfBirth.ToShortDateString()</dd>
+<dt class="col-sm-3">Address</dt><dd class="col-sm-9">@Model.Address</dd>
+<dt class="col-sm-3">Department</dt><dd class="col-sm-9">@Model.Department</dd>
+<dt class="col-sm-3">Designation</dt><dd class="col-sm-9">@Model.Designation</dd>
+</dl>
+@if("Delete"=="Delete"){<form asp-action="Delete"><input type="hidden" asp-for="Id"/><button class="btn btn-danger">Confirm Delete</button> <a asp-action="Index" class="btn btn-secondary">Cancel</a></form>}
+else{<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a> <a asp-action="Index" class="btn btn-secondary">Back</a>}
+</div></div>

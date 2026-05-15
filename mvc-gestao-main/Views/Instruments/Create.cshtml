@@ -1,0 +1,13 @@
+@model EmployeesManagement.Models.Instruments
+@{ ViewData["Title"]="Create"; }
+<div class="card"><div class="card-header"><h3>Create Instruments</h3></div>
+<div class="card-body"><form asp-action="Create">
+@if("Create"=="Edit"){<input type="hidden" asp-for="Id"/>}
+<div class="row">
+<div class="col-md-6 form-group"><label asp-for="TipoInstrumento"></label><input asp-for="TipoInstrumento" class="form-control"/></div>
+<div class="col-md-6 form-group"><label asp-for="Instrumento"></label><input asp-for="Instrumento" class="form-control"/></div>
+<div class="col-md-6 form-group"><label asp-for="UsaCordas"></label><input asp-for="UsaCordas" class="form-control"/></div>
+</div>
+<button type="submit" class="btn btn-primary">Save</button>
+<a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form></div></div>
