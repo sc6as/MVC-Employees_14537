@@ -19,12 +19,12 @@ public class InstrumentsController : Controller
         _userManager = userManager;
     }
 
-    public async Task<IActionResult> Index() => View(await _context.Employees.ToListAsync());
+    public async Task<IActionResult> Index() => View(await _context.Instruments.ToListAsync());
 
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null) return NotFound();
-        var e = await _context.Employees.FirstOrDefaultAsync(m => m.Id == id);
+        var e = await _context.Instruments.FirstOrDefaultAsync(m => m.Id == id);
         return e == null ? NotFound() : View(e);
     }
 
@@ -51,12 +51,12 @@ public class InstrumentsController : Controller
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null) return NotFound();
-        var e = await _context.Employees.FindAsync(id);
+        var e = await _context.Instruments.FindAsync(id);
         return e == null ? NotFound() : View(e);
     }
 
     [HttpPost, ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, Employee Instruments)
+    public async Task<IActionResult> Edit(int id, Instruments Instruments)
     {
         if (id != Instruments.Id) return NotFound();
         if (ModelState.IsValid)
@@ -70,7 +70,7 @@ public class InstrumentsController : Controller
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.Employees.Any(e => e.Id == id)) return NotFound();
+                if (!_context.Instruments.Any(e => e.Id == id)) return NotFound();
                 throw;
             }
             return RedirectToAction(nameof(Index));
@@ -81,15 +81,15 @@ public class InstrumentsController : Controller
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null) return NotFound();
-        var e = await _context.Employees.FirstOrDefaultAsync(m => m.Id == id);
+        var e = await _context.Instruments.FirstOrDefaultAsync(m => m.Id == id);
         return e == null ? NotFound() : View(e);
     }
 
     [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
-        var e = await _context.Employees.FindAsync(id);
-        if (e != null) _context.Employees.Remove(e);
+        var e = await _context.Instruments.FindAsync(id);
+        if (e != null) _context.Instruments.Remove(e);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }

@@ -9,6 +9,7 @@ public class ApplicationDbContext : IdentityDbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
 
     public DbSet<Employee> Employees { get; set; }
+    public DbSet<Instruments> Instruments { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
